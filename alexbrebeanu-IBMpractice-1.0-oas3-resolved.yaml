@@ -1,0 +1,458 @@
+---
+openapi: 3.0.0
+info:
+  version: 1.0-oas3
+servers:
+- url: /
+paths:
+  /user:
+    post:
+      tags:
+      - User
+      summary: Create a new user
+      responses:
+        "200":
+          description: User created succesfully
+  /user/{id}:
+    get:
+      tags:
+      - User
+      summary: Find user by ID
+      parameters:
+      - name: id
+        in: path
+        description: Id of the user being searched
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: user found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+        "404":
+          description: Invalid userId
+    put:
+      tags:
+      - User
+      summary: Update user
+      parameters:
+      - name: id
+        in: path
+        description: Id of the user to update
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: confirmed Update
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+        "404":
+          description: ID not found
+    delete:
+      tags:
+      - User
+      summary: Delete user
+      parameters:
+      - name: id
+        in: path
+        description: Id of user to delete
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: confirmed delete
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+        "404":
+          description: UserId not found
+  /class:
+    post:
+      tags:
+      - Class
+      summary: Create a new class
+      responses:
+        "200":
+          description: Class was created succesfully
+  /class/{id}:
+    get:
+      tags:
+      - Class
+      summary: Find a class by id
+      parameters:
+      - name: id
+        in: path
+        description: The id of the class searched for
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Class was found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Class'
+        "404":
+          description: Invalid ID
+    put:
+      tags:
+      - Class
+      summary: Update a class
+      parameters:
+      - name: id
+        in: path
+        description: Id of class to be updated
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Update succesfull
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Class'
+        "404":
+          description: id not found
+    delete:
+      tags:
+      - Class
+      summary: Delete a class
+      parameters:
+      - name: id
+        in: path
+        description: Id of class to be deleted
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Deletion successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Class'
+        "404":
+          description: Class not found
+  /classroom:
+    post:
+      tags:
+      - Classroom
+      summary: Create a new classroom
+      responses:
+        "200":
+          description: Classroom was created succesfully
+  /classroom/{id}:
+    get:
+      tags:
+      - Classroom
+      summary: Find a classroom by id
+      parameters:
+      - name: id
+        in: path
+        description: Id of classroom searched for
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Classroom was found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Classroom'
+        "404":
+          description: Invalid ID
+    put:
+      tags:
+      - Classroom
+      summary: Update a classroom
+      parameters:
+      - name: id
+        in: path
+        description: Id of updated classroom
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Update succesfull
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Classroom'
+        "404":
+          description: id not found
+    delete:
+      tags:
+      - Classroom
+      summary: Delete a classroom
+      parameters:
+      - name: id
+        in: path
+        description: Id of classroom to delete
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Deletion successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Classroom'
+        "404":
+          description: Class not found
+  /lecture:
+    post:
+      tags:
+      - Lecture
+      summary: Create a new lecture
+      responses:
+        "200":
+          description: Lecture created succesfully
+  /lecture/{id}:
+    get:
+      tags:
+      - Lecture
+      summary: Find a lecture by id
+      parameters:
+      - name: id
+        in: path
+        description: Id of lecture searched for
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Lecture was found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Lecture'
+        "404":
+          description: Invalid ID
+    put:
+      tags:
+      - Lecture
+      summary: Update a lecture
+      parameters:
+      - name: id
+        in: path
+        description: Id of updated lecture
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Update succesfull
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Lecture'
+        "404":
+          description: id not found
+    delete:
+      tags:
+      - Lecture
+      summary: Delete a lecture
+      parameters:
+      - name: id
+        in: path
+        description: Id of lecture to delete
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Deletion successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Lecture'
+        "404":
+          description: Lecture not found
+  /enrollment:
+    post:
+      tags:
+      - Enrollment
+      summary: Create a new enrollment
+      responses:
+        "200":
+          description: Enrollment created succesfully
+  /enrollment/{id}:
+    get:
+      tags:
+      - Enrollment
+      summary: Find an elrollment by id
+      parameters:
+      - name: id
+        in: path
+        description: Id of enrollment searched for
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Enrollment was found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Enrollment'
+        "404":
+          description: Invalid ID
+    put:
+      tags:
+      - Enrollment
+      summary: Update an enrollment
+      parameters:
+      - name: id
+        in: path
+        description: Id of updated enrollment
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Update succesfull
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Enrollment'
+        "404":
+          description: id not found
+    delete:
+      tags:
+      - Enrollment
+      summary: Delete a enrollment
+      parameters:
+      - name: id
+        in: path
+        description: Id of enrollment to delete
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Deletion successful
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Enrollment'
+        "404":
+          description: Enrollment not found
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+        startYear:
+          type: integer
+        faculty:
+          type: string
+        role:
+          type: string
+          enum:
+          - guest
+          - student
+          - teacher
+          - admin
+    Class:
+      type: object
+      properties:
+        classId:
+          type: integer
+          format: int64
+        className:
+          type: string
+        classFaculty:
+          type: string
+        teacherId:
+          type: integer
+    Classroom:
+      type: object
+      properties:
+        classroomId:
+          type: integer
+          format: int64
+        location:
+          type: string
+        capacity:
+          type: integer
+        features:
+          type: string
+          enum:
+          - projector
+          - whiteboard
+          - computers
+          - soldering stations
+    Lecture:
+      type: object
+      properties:
+        lectureId:
+          type: integer
+          format: int64
+        startTime:
+          type: integer
+        endTime:
+          type: integer
+        classId:
+          type: integer
+        classroomId":
+          type: integer
+    Enrollment:
+      type: object
+      properties:
+        enrollmentId:
+          type: integer
+          format: int64
+        studentId:
+          type: integer
+        lectureId:
+          type: integer
