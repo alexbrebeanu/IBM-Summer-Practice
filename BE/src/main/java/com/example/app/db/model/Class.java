@@ -7,16 +7,20 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Table(name = "CLASS")
 public class Class {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private Long id;
+    @Column(name = "NAME")
     private String name;
+    @Column(name = "FACULTY")
     private String faculty;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private User teacher;
-    @OneToMany
+    @OneToMany(mappedBy = "classs")
     private List<Lecture> lecturesForClass;
 
     public Class(Long id, String name, String faculty, User teacher, List<Lecture> lecturesForClass) {

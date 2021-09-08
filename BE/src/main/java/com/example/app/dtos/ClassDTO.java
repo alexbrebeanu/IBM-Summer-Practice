@@ -6,11 +6,9 @@ public final class ClassDTO {
     }
 
     private String name;
-    private Long teacherId;
 
-    public ClassDTO(String name, Long teacherId) {
+    public ClassDTO(String name) {
         this.name = name;
-        this.teacherId = teacherId;
     }
 
     public String getName() {

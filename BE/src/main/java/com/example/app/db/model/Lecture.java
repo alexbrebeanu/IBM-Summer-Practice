@@ -3,19 +3,24 @@ package com.example.app.db.model;
 
 
 import javax.persistence.*;
+import java.beans.ConstructorProperties;
 import java.util.UUID;
 import java.util.List;
 
 @Entity
+@Table(name = "LECTURE")
 public class Lecture {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private Long id;
+    @Column(name = "START_TIME")
     private int startTime;
+    @Column(name = "END_TIME")
     private int endTime;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Class classs;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Classroom classroom;
     @ManyToMany
     private List<User> enrolledStudents;

@@ -1,26 +1,31 @@
 package com.example.app.db.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import org.springframework.context.annotation.EnableMBeanExport;
+import org.springframework.stereotype.Component;
+
+import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
 
 @Entity
+@Table(name = "CLASSROOM")
 public class Classroom {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private Long id;
+    @Column(name = "LOCATION")
     private String location;
+    @Column(name = "CAPACITY")
     private int capacity;
+    @Column(name = "FACILITIES")
     private Facilities facilities;
-    @OneToMany
-    private List<Classroom> lecturesInClassroom;
+    @OneToMany(mappedBy = "classroom")
+    private List<Lecture> lecturesInClassroom;
 
-    public Classroom(Long id, String location, int capacity, Facilities facilities, List<Classroom> lecturesInClassroom) {
+    public Classroom(Long id, String location, int capacity, Facilities facilities, List<Lecture> lecturesInClassroom) {
         this.id = id;
         this.location = location;
         this.capacity = capacity;
@@ -31,11 +36,11 @@ public class Classroom {
     public Classroom() {
     }
 
-    public List<Classroom> getLecturesInClassroom() {
+    public List<Lecture> getLecturesInClassroom() {
         return lecturesInClassroom;
     }
 
-    public void setLecturesInClassroom(List<Classroom> lecturesInClassroom) {
+    public void setLecturesInClassroom(List<Lecture> lecturesInClassroom) {
         this.lecturesInClassroom = lecturesInClassroom;
     }
 

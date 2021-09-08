@@ -2,17 +2,15 @@ package com.example.app.dtos;
 
 import com.example.app.db.model.Role;
 
-public class UserDTO {
-    public UserDTO(){
+public class UserDTONames {
+    public UserDTONames(){
     }
     private String firstName;
     private String lastName;
-    private Role role;
 
-    public UserDTO(String firstName, String lastName, Role role) {
+    public UserDTONames(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.role = role;
     }
 
     public String getFirstName() {
@@ -31,24 +29,17 @@ public class UserDTO {
         this.lastName = lastName;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    //From now for testing purposes ***********************************************
-
+    //From now for testing purposes **********************************************
+    /*
     private Long id;
 
-    public UserDTO(String firstName, String lastName, Role role, Long id) {
+    public UserDTONames(String firstName, String lastName, Role role, Long id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.role = role;
         this.id = id;
     }
+
 
     public Long getId() {
         return id;
@@ -57,4 +48,8 @@ public class UserDTO {
     public void setId(Long id) {
         this.id = id;
     }
+
+     */
 }
+
+

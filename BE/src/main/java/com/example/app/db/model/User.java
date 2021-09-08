@@ -1,22 +1,31 @@
 package com.example.app.db.model;
 
+import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+
 import javax.annotation.processing.Generated;
 import javax.persistence.*;
 import java.util.UUID;
 import java.util.List;
 
 @Entity
+@Table(name = "USER")
 public class User {
 
         @Id
-        @GeneratedValue
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        @Column(name = "ID")
         private Long id;
+        @Column(name = "FIRST_NAME")
         private String firstName;
+        @Column(name = "LAST_NAME")
         private String lastName;
+        @Column(name = "START_YEAR")
         private int startYear;
+        @Column(name = "FACULTY")
         private String faculty;
+        @Column(name = "ROLE")
         private Role role;
-        @OneToMany
+        @OneToMany(mappedBy = "teacher")
         private List<Class> classesTaught;
         @ManyToMany
         private List<Lecture> lecturesEnrolled;
